@@ -101,13 +101,11 @@ export default class ImageZooms extends React.Component<Props, States> {
     }
 
     const { top, left } = this.sourceImage.current!.getBoundingClientRect();
-    if (top && left) {
-      newBoxStyle = {
-        ...newBoxStyle,
-        top,
-        left,
-      };
-    }
+    newBoxStyle = {
+      ...newBoxStyle,
+      top,
+      left,
+    };
 
     this.setState({
       boxStyle: newBoxStyle,

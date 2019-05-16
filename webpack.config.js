@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
+  devtool: 'sourcemap',
   entry: {
     app: path.resolve(__dirname, 'docs/src'),
   },

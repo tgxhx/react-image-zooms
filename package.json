@@ -4,6 +4,9 @@
   "description": "A click on the react component of the zoom in image.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "files": [
+    "lib/"
+  ],
   "scripts": {
     "start": "webpack-dev-server --progress --colors --watch",
     "build": "npm-run-all build:js build:css",

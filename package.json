@@ -1,6 +1,6 @@
 {
   "name": "react-image-zooms",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A click on the react component of the zoom in image.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

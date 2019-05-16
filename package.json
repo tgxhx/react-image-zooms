@@ -17,6 +17,11 @@
     "zoom in"
   ],
   "author": "tgxh<tgxh2020@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tgxhx/react-image-zooms.git"
+  },
+  "homepage": "https://github.com/tgxhx/react-image-zooms",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.4.4",

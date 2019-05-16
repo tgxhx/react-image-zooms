@@ -1,0 +1,48 @@
+.react-image-zooms {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  .react-image-zooms-box {
+    width: 100%;
+    height: 100%;
+  }
+  &.show {
+    .react-image-zooms-layer {
+      &.show {
+        z-index: 10000;
+        &.fadeIn {
+          background-color: rgba(0, 0, 0, 0.7);
+        }
+      }
+    }
+  }
+  .react-image-zooms-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0);
+    will-change: background-color;
+  }
+  .react-image-zooms-layer-box {
+    position: absolute;
+    will-change: transform;
+    background-size: contain;
+    background-position: center;
+    &.showBox {
+      width: 400px !important;
+      height: 600px !important;
+      top: 200px !important;
+      left: 400px !important;
+    }
+    .react-zooms-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}

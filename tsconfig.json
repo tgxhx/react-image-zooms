@@ -8,7 +8,12 @@
     "strict": true,
     "allowSyntheticDefaultImports": true,
     "strictPropertyInitialization": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin"
+      }
+    ]
   },
   "include": ["src"],
   "exclude": ["node_modules"]

@@ -1,5 +1,50 @@
 import * as React from 'react';
 import classnames from 'classnames';
+import styled, { css } from 'styled-components';
+
+const ImageZoomsEle = styled.div`
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+`;
+
+const ImageZoomsBoxEle = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
+const ImageZoomsLayerEle = styled('div')<{
+  show: boolean;
+  fadeIn: boolean;
+}>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, ${({ fadeIn }) => (fadeIn ? 0.7 : 0)});
+  will-change: background-color;
+  ${({ show }) =>
+    show &&
+    css`
+      z-index: 1000;
+    `}
+`;
+
+const ImageZoomsLayerBoxEle = styled.div`
+  position: absolute;
+  will-change: transform;
+  background-size: contain;
+  background-position: center;
+`;
+
+const ZoomsImageELe = styled.img`
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+`;
 
 interface Props {
   src: string;
@@ -174,39 +219,24 @@ export default class ImageZooms extends React.Component<Props, States> {
     this.setBoxTransform(imageBoxStyles);
     this.setBoxBackground(imageBoxStyles);
     return (
-      <div className={classnames(['react-image-zooms', { show: show }])}>
-        <div
-          className="react-image-zooms-box"
-          onClick={() => this.toggleZooms(true)}>
+      <ImageZoomsEle>
+        <ImageZoomsBoxEle onClick={() => this.toggleZooms(true)}>
           <img src={src} alt="image" ref={this.sourceImage} />
-        </div>
+        </ImageZoomsBoxEle>
         {show && (
-          <div
-            className={classnames([
-              'react-image-zooms-layer',
-              {
-                show: show,
-                fadeIn: addClass,
-              },
-            ])}
+          <ImageZoomsLayerEle
+            show={show}
+            fadeIn={addClass}
             style={{ transition: `background-color ${seconds}s` }}
-            onClick={() => this.toggleZooms(false)}
-            onAnimationEnd={() => {}}>
-            <div
-              className={classnames(['react-image-zooms-layer-box'])}
-              style={imageBoxStyles}
-              ref={this.imageBox}>
+            onClick={() => this.toggleZooms(false)}>
+            <ImageZoomsLayerBoxEle style={imageBoxStyles} ref={this.imageBox}>
               {supportObjectFit && (
-                <img
-                  className="react-zooms-image"
-                  src={src}
-                  alt="zooms-image"
-                />
+                <ZoomsImageELe src={src} alt="zooms-image" />
               )}
-            </div>
-          </div>
+            </ImageZoomsLayerBoxEle>
+          </ImageZoomsLayerEle>
         )}
-      </div>
+      </ImageZoomsEle>
     );
   }
 }

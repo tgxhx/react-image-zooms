@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "outDir": "./lib/",
     "module": "esnext",
     "moduleResolution": "node",
     "target": "esnext",
@@ -11,6 +10,6 @@
     "strictPropertyInitialization": true,
     "strictNullChecks": true
   },
-  "include": ["./src/"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }

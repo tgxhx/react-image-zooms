@@ -8,5 +8,3 @@ node_modules
 npm-debug.log*
 package-lock.json
 /.rpt2_cache/
-src/*.d.ts
-docs/src/*.d.ts

@@ -8,7 +8,7 @@
     "lib/"
   ],
   "scripts": {
-    "start": "webpack-dev-server --progress --colors --watch",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --progress --colors --watch",
     "build": "rimraf lib && npm-run-all build:js build:css",
     "build:demo": "rimraf \"docs/*.+(js|css|html)\" && cross-env NODE_ENV=production webpack -p --progress --profile --hide-modules",
     "build:js": "rollup -c",

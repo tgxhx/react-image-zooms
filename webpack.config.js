@@ -14,9 +14,8 @@ module.exports = {
     app: path.resolve(__dirname, 'docs/src'),
   },
   output: {
-    filename: `[name]${dev ? '' : '.[contenthash:10]'}.js`,
+    filename: `[name]${dev ? '' : '.[hash:10]'}.js`,
     path: path.resolve(__dirname, 'docs'),
-    publicPath: dev ? '/' : '/react-image-zooms',
   },
   resolve: {
     extensions: ['.js', '.ts', '.tsx'],
@@ -50,6 +49,9 @@ module.exports = {
           },
           {
             loader: 'ts-loader',
+            options: {
+              configFile: 'webpack.tsconfig.json',
+            },
           },
         ],
       },
@@ -78,9 +80,10 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'docs/src/index.html',
+      favicon: path.resolve(__dirname, 'docs/src/favicon.ico'),
     }),
     new MiniCssExtractPlugin({
-      filename: `[name]${dev ? '' : '.[contenthash:10]'}.css`,
+      filename: `[name]${dev ? '' : '.[hash:10]'}.css`,
     }),
   ],
 };

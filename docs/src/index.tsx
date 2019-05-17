@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import './app.less';
 import ImageZooms from '../../src';
 import '../../src/image-zooms.less';

@@ -127,20 +127,19 @@ export default class ImageZooms extends React.Component<Props, States> {
     if (addClass) {
       let { imageBoxSize } = this.props;
       let { left, top, width, height } = imageBoxStyles;
+      const { clientWidth, clientHeight } = document.documentElement;
+      const minSize = Math.min(clientWidth, clientHeight);
+      if (imageBoxSize > minSize) {
+        imageBoxSize = minSize;
+      }
       left = parseInt(left as string);
       top = parseInt(top as string);
       width = parseInt(width as string);
       height = parseInt(height as string);
-      // target = imageLeft+ (sourceImageWidth - imageWidth) / 2 + diffWidth
-      // 756 = 408 + (400 - 175) / 2 + diff
       const diffWidth =
-        (document.documentElement.clientWidth - imageBoxSize) / 2 -
-        left +
-        (imageBoxSize - width) / 2;
+        (clientWidth - imageBoxSize) / 2 - left + (imageBoxSize - width) / 2;
       const diffheight =
-        (document.documentElement.clientHeight - imageBoxSize) / 2 -
-        top +
-        (imageBoxSize - height) / 2;
+        (clientHeight - imageBoxSize) / 2 - top + (imageBoxSize - height) / 2;
 
       let scale;
       if (width <= height) {
@@ -190,8 +189,7 @@ export default class ImageZooms extends React.Component<Props, States> {
               },
             ])}
             style={{ transition: `background-color ${seconds}s` }}
-            onClick={() => this.toggleZooms(false)}
-            onAnimationEnd={() => {}}>
+            onClick={() => this.toggleZooms(false)}>
             <div
               className={classnames(['react-image-zooms-layer-box'])}
               style={imageBoxStyles}

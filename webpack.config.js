@@ -16,7 +16,7 @@ module.exports = {
   output: {
     filename: `[name]${dev ? '' : '.[contenthash:10]'}.js`,
     path: path.resolve(__dirname, 'docs'),
-    publicPath: !dev ? '/' : '/react-image-zooms',
+    publicPath: dev ? '/' : '/react-image-zooms',
   },
   resolve: {
     extensions: ['.js', '.ts', '.tsx'],

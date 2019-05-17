@@ -50,7 +50,6 @@
     "react-dom": "^16.8.6",
     "rimraf": "^2.6.3",
     "rollup": "^1.12.1",
-    "rollup-plugin-less": "^1.1.2",
     "rollup-plugin-typescript2": "^0.21.0",
     "style-loader": "^0.23.1",
     "terser-webpack-plugin": "^1.2.4",

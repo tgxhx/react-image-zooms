@@ -56,7 +56,7 @@ module.exports = {
         ],
       },
       {
-        test: /.less$/,
+        test: /.(le|c)ss$/,
         use: [
           dev
             ? 'style-loader'

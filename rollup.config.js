@@ -1,5 +1,4 @@
 import typescript from 'rollup-plugin-typescript2';
-import less from 'rollup-plugin-less';
 import pkg from './package.json';
 
 export default {
@@ -18,6 +17,5 @@ export default {
     typescript({
       typescript: require('typescript'),
     }),
-    less(),
   ],
 };
